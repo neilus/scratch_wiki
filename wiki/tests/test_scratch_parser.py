@@ -1,14 +1,15 @@
 import pytest
 
+
 class Paragraph:
-    type:str = ""
-    lines:str = ""
+    type: str = ""
+    lines: str = ""
 
     def __str__(self):
         return f"{self.type}: {self.lines}"
 
 
-def parser(input:str):
+def parser(input: str):
     """
     Gets a multiline string as an input
     Returns a list of sections
@@ -29,6 +30,7 @@ def parser(input:str):
     ret.append(paragraph)
     return ret
 
+
 input = """
 asdiufasdljfbsad
     ##c
@@ -38,6 +40,7 @@ asdiufasdljfbsad
     ##c
     masvalami
 """
+
 
 def test_parsed_is_not_none():
     parsed = parser("")
@@ -57,6 +60,7 @@ def test_simple_section():
     assert len(parsed) == 1
     assert "valami" in parsed[0].lines
 
+
 def test_complicated_sections():
     parsed = parser(input)
 
@@ -64,6 +68,7 @@ def test_complicated_sections():
     assert "valami" in parsed[0].lines
     assert "megvalami" in parsed[0].lines
     assert "masvalami" in parsed[1].lines
+
 
 def test_type_of_sections():
     parsed = parser(input)

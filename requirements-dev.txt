@@ -1,0 +1,5 @@
+-rrequirements.txt
+-rrequirements-test.txt
+ipython
+ipykernel
+jupyterlab
